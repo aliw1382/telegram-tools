@@ -1,5 +1,5 @@
 
-<p align="center"><img width="400" src="https://github-production-user-asset-6210df.s3.amazonaws.com/22743719/264719742-e451cf2e-6370-420f-9e6d-100f465bef9e.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230831%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230831T170100Z&X-Amz-Expires=300&X-Amz-Signature=8392d237bfa55ca971e02808d145eb3f439e4ebac10bf4281d873be82c8e3635&X-Amz-SignedHeaders=host&actor_id=22743719&key_id=0&repo_id=685555735" alt="Laravel Telegram Tools"></p>
+<p align="center"><img width="400" src="https://github.com/aliw1382/telegram-tools/assets/22743719/f7c7bef0-3b39-4f5a-868d-cc8d54410a67" alt="Laravel Telegram Tools"></p>
 
 [Document English](README.md)
 
