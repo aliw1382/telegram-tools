@@ -196,7 +196,7 @@ Telegram::sendMessage( 'YOUR CHAT ID', 'YOUR CONTENT TEXT', Telegram::buildInlin
 ```
 </div>
 
-<h3 align="center">امیدوارم از این پکیج لذت برده باشید!</h2>
+<h3 align="center">✨ امیدوارم از این پکیج لذت ببرید ✨</h2>
 
 # امنیت
 در صورتی که مشکل امنیتی در پکیج پیدا کردید به منظور رفع مشکل با ایمیل aliw1382@gmail.com در ارتباط باشید.
