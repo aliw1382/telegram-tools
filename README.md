@@ -9,7 +9,7 @@
 
 # About Package
 
-> <h3>This package is in its test version, it may have problems!</h3>
+> This package is in its test version, it may have problems!
 
 <p>This package is made so that people who build Telegram bots can easily and quickly code their bots.</p>
 <p>This package was developed and designed by Ali Shahmohammadi.</p>
@@ -105,7 +105,7 @@ telegram( 'Your Other Token Bot' )->sendMessage( [
 
 > If you use `telegram()` we use your `.env` token bot.
 
-* The second method:
+* The second method
 
 ```php
 telegram()->sendMessage()->to( 'YOUR CHAT ID' )->content( 'YOUR CONTENT TEXT' )->send();
@@ -122,7 +122,7 @@ telegram()->sendMessage()->to( 'YOUR CHAT ID' )->content( 'YOUR CONTENT TEXT' )-
 telegram()->sendMessage()->to( 'YOUR CHAT ID' )->content( 'YOUR CONTENT TEXT' )->parseMode( 'MarkdownV2' )->button( 'Google' , 'https://google.com' )->buttonWithCallback( 'Button 1' , 'Your Callback Data' )->send();
 ```
 
-* The third method:
+* The third method
 
 ```php
 \Telegram::sendMessage( 'YOUR CHAT ID', 'YOUR CONTENT TEXT' );
@@ -156,7 +156,7 @@ Telegram::sendMessage( 'YOUR CHAT ID', 'YOUR CONTENT TEXT', Telegram::buildInlin
 
 ```
 
-<h3 align="center">✨ I hope you enjoy this package ✨</h2>
+<p align="center">✨ I hope you enjoy this package ✨</p>
 
 # Security
 
