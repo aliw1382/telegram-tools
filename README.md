@@ -11,13 +11,13 @@
 
 > <h3>This package is in its test version, it may have problems!</h3>
 
+<p>This package is made so that people who build Telegram bots can easily and quickly code their bots.</p>
+<p>This package was developed and designed by Ali Shahmohammadi.</p>
+
 # Requirement
 * guzzlehttp/guzzle ^7.*
 * illuminate/support ~5.8.0|^6.0|^7.0|^8.0|^9.0|^10.0
 * php >= 7.4
-
-<p>This package is made so that people who build Telegram bots can easily and quickly code their bots.</p>
-<p>This package was developed and designed by Ali Shahmohammadi.</p>
 
 # Installation ✨
 
