@@ -94,7 +94,7 @@ $ php artisan vendor:publish --tag=config-telegram-tools
 
 این را فایل `.env` اضافه کرده و توکن دریافت شده از **بات فادر** را در اینجا قرار دهید.
 
-<div dir="rtl">
+<div dir="ltr">
 
 ```dotenv
 TELEGRAM_API_TOKEN=
@@ -197,6 +197,114 @@ Telegram::sendMessage( 'YOUR CHAT ID', 'YOUR CONTENT TEXT', Telegram::buildInlin
 </div>
 
 <p align="center">✨ امیدوارم از این پکیج لذت ببرید ✨</p>
+
+# برنامه نویسی سورس کد
+
+>این قابلیت در ورژن ۲ فعال سازی شده است!
+
+بسیار خوب حالا زمان هدل کردن دستور /start در ربات است.
+
+نخست نیاز دارید یک کلاس برای کد نویسی ربات خود ایجاد کنید. شما میتوانید با استفاده از دستور زیر یک کلاس برای پیام هایی که در ربات ارسال می شود استفاده کنید.
+
+<div dir="ltr">
+
+```bash
+$ php artisan telegram:command StartMessage --type=Message
+```
+
+</div>
+
+بعد از اینکه دستور خود را ایجاد کردید نیاز است که آن را به برنامه معرفی کنید لذا برای این کار وارد فایل `config/telegram.php` شوید و آدرس کلاس ساخته شده را به آن اضافه کنید.
+
+<div dir="ltr">
+
+```php
+'commands' => [
+    
+    App\Telegram\StartMessage::class,
+    // Commands Class
+
+]
+```
+
+این نمونه کلاس ساخته شده است برای پاسخ به پیام `/start` ربات.
+
+```php
+<?php
+
+namespace App\Telegram;
+
+use Aliw1382\TelegramTools\Attribute\TelegramAttribute;
+use Aliw1382\TelegramTools\Contracts\Abstract\AbstractTelegramMessage;
+use Aliw1382\TelegramTools\Vendor\TelegramUpdate;
+
+
+class StartMessage extends AbstractTelegramMessage
+{
+
+    #[TelegramAttribute( '/start' )]
+    public function myMethod( TelegramUpdate $update )
+    {
+
+        telegram()->sendMessage( [
+
+            'chat_id' => $update->ChatID(),
+            'text'    => '!سلام خوش اومدید به ربات'
+
+        ] );
+
+    }
+
+}
+```
+
+اگر شما به عنوان مثال میخواستید از یک کلمه غیر مشخص را هندل کنید میتوانید به جای آن از `*` استفاده کنید.
+
+به عنوان مثال برای _Callback Query_
+
+```bash
+$ php artisan telegram:command CallBackQueryHandler --type=CallbackQuery
+```
+
+کلاس جدید را به فایل `config/telegram.php` اضافه میکنیم.
+
+```php
+<?php
+
+namespace App\Telegram;
+
+use Aliw1382\TelegramTools\Attribute\TelegramAttribute;
+use Aliw1382\TelegramTools\Contracts\Abstract\AbstractTelegramCallbackQuery;
+use Aliw1382\TelegramTools\Vendor\TelegramUpdate;
+
+
+class CallBackQueryHandler extends AbstractTelegramCallbackQuery
+{
+
+    #[TelegramAttribute( 'mention-*' )]
+    public function exampleMethod( TelegramUpdate $update )
+    {
+
+        telegram()->editMessageText( [
+            
+            'chat_id'    => $update->ChatID(),
+            'message_id' => $update->MessageID(),
+            'text'       => 'شما کاربر  <a href="tg://user=' . $update->CallbackDataArray()[ 1 ] . '">' . $update->CallbackDataArray()[ 1 ] . '</a>' . ' را منشن کردید.'
+            
+        ] );
+
+    }
+
+}
+```
+
+اگر ما داده `mention-123456` را ارسال کنیم سپس کاربر `123456` منشن می شود.
+
+</div>
+
+# تاریخچه
+
+لطفاً برای اطلاعات بیشتر در مورد آنچه اخیراً تغییر کرده است به [تاریخچه](history.md) مراجعه کنید.
 
 # امنیت
 در صورتی که مشکل امنیتی در پکیج پیدا کردید به منظور رفع مشکل با ایمیل aliw1382@gmail.com در ارتباط باشید.

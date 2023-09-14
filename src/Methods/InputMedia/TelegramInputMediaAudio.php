@@ -2,8 +2,8 @@
 
 namespace Aliw1382\TelegramTools\Methods\InputMedia;
 
+use Aliw1382\TelegramTools\Contracts\Interface\InputMedia;
 use Aliw1382\TelegramTools\TelegramBase;
-use Aliw1382\TelegramTools\Contracts\InputMedia;
 
 class TelegramInputMediaAudio extends TelegramBase implements InputMedia
 {

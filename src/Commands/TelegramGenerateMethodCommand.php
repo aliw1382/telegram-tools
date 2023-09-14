@@ -7,8 +7,11 @@ use Illuminate\Console\Command;
 class TelegramGenerateMethodCommand extends Command
 {
 
+    /** @var bool  */
+    protected $hidden = true;
+
     /** @var string */
-    protected $signature = 'telegram:generate-method {name : Name Of Create Method }
+    protected $signature = 'telegram:method {name : Name Of Create Method }
         {--path=}
     ';
 

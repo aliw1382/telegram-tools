@@ -158,6 +158,139 @@ Telegram::sendMessage( 'YOUR CHAT ID', 'YOUR CONTENT TEXT', Telegram::buildInlin
 
 <p align="center">✨ I hope you enjoy this package ✨</p>
 
+# Source Code Programming
+
+> This feature is activated in version 2.0.0 !
+
+Okay, now it's time to handle the `/start` command in the robot.
+
+First you need to create a class to code your bot. You can use the following command to create a class for the messages that are sent to the bot.
+
+```bash
+$ php artisan telegram:command StartMessage --type=Message
+```
+
+After you create your command, you need to introduce it to the program, so for this, enter the file `config/telegram.php` and add the address of the created class to it.
+
+```php
+'commands' => [
+    
+    App\Telegram\StartMessage::class,
+    // Commands Class
+
+]
+```
+
+This class instance is made to handle the bot `/start` message and respond to it.
+
+```php
+<?php
+
+namespace App\Telegram;
+
+use Aliw1382\TelegramTools\Attribute\TelegramAttribute;
+use Aliw1382\TelegramTools\Contracts\Abstract\AbstractTelegramMessage;
+use Aliw1382\TelegramTools\Vendor\TelegramUpdate;
+
+
+class StartMessage extends AbstractTelegramMessage
+{
+
+    #[TelegramAttribute( '/start' )]
+    public function myMethod( TelegramUpdate $update )
+    {
+
+        telegram()->sendMessage( [
+
+            'chat_id' => $update->ChatID(),
+            'text'    => 'Hello Welcome To Bot!'
+
+        ] );
+
+    }
+
+}
+```
+
+For example, if you want to handle an unknown word, you can use `*` instead. 
+
+for example: We want to handle the word `/help`, but the user might send it `/hel`
+
+```php
+<?php
+
+namespace App\Telegram;
+
+use Aliw1382\TelegramTools\Attribute\TelegramAttribute;
+use Aliw1382\TelegramTools\Contracts\Abstract\AbstractTelegramMessage;
+use Aliw1382\TelegramTools\Vendor\TelegramUpdate;
+
+
+class StartMessage extends AbstractTelegramMessage
+{
+
+    #[TelegramAttribute( '/hel*' )]
+    public function myMethod( TelegramUpdate $update )
+    {
+
+        telegram()->sendMessage( [
+
+            'chat_id' => $update->ChatID(),
+            'text'    => 'Help Message ...'
+
+        ] );
+
+    }
+
+}
+
+```
+
+An example for _Callback Query_
+
+```bash
+$ php artisan telegram:command CallBackQueryHandler --type=CallbackQuery
+```
+
+add new class to `config/telegram.php`
+
+```php
+<?php
+
+namespace App\Telegram;
+
+use Aliw1382\TelegramTools\Attribute\TelegramAttribute;
+use Aliw1382\TelegramTools\Contracts\Abstract\AbstractTelegramCallbackQuery;
+use Aliw1382\TelegramTools\Vendor\TelegramUpdate;
+
+
+class CallBackQueryHandler extends AbstractTelegramCallbackQuery
+{
+
+    #[TelegramAttribute( 'mention-*' )]
+    public function exampleMethod( TelegramUpdate $update )
+    {
+
+        telegram()->editMessageText( [
+            
+            'chat_id'    => $update->ChatID(),
+            'message_id' => $update->MessageID(),
+            'text'       => 'You Mention The User <a href="tg://user=' . $update->CallbackDataArray()[ 1 ] . '">' . $update->CallbackDataArray()[ 1 ] . '</a>'
+            
+        ] );
+
+    }
+
+}
+```
+
+if we send data `mention-123456` so we mentioned the user `123456`
+
+# History
+
+Please see [History](history.md) for more information on what has been changed recently.
+
+
 # Security
 
 If you discover any security related issues, please email aliw1382@gmail.com instead of using the issue tracker.

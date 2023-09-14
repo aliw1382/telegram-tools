@@ -73,3 +73,23 @@ if ( ! function_exists( 'str' ) )
         return Str::of( $string );
     }
 }
+
+
+if ( ! function_exists( 'reflector' ) )
+{
+
+    /**
+     * @param callable $reflector
+     * @param callable $callable
+     * @return void
+     */
+    function reflector( callable $reflector, callable $callable ) : void
+    {
+        if ( $reflector() instanceof Reflector )
+            foreach ( $reflector()->getAttributes() as $attribute )
+                $callable( $attribute->newInstance(), $attribute->getArguments(), $attribute->getName() );
+        else
+            $callable( $reflector );
+    }
+
+}

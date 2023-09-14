@@ -2,9 +2,8 @@
 
 namespace Aliw1382\TelegramTools\Methods;
 
+use Aliw1382\TelegramTools\Contracts\Interface\TelegramSenderContract;
 use Aliw1382\TelegramTools\TelegramBase;
-use Aliw1382\TelegramTools\Contracts\TelegramSenderContract;
-use Aliw1382\TelegramTools\Exceptions\CouldNotSendNotification;
 use Psr\Http\Message\ResponseInterface;
 
 /**

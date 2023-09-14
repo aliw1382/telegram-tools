@@ -2,7 +2,7 @@
 
 namespace Aliw1382\TelegramTools\Methods;
 
-use Aliw1382\TelegramTools\Contracts\TelegramSenderContract;
+use Aliw1382\TelegramTools\Contracts\Interface\TelegramSenderContract;
 use Aliw1382\TelegramTools\Enums\TelegramTypeDice;
 use Aliw1382\TelegramTools\TelegramBase;
 use Psr\Http\Message\ResponseInterface;

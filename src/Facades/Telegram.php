@@ -2,7 +2,7 @@
 
 namespace Aliw1382\TelegramTools\Facades;
 
-use Aliw1382\TelegramTools\Contracts\TelegramContracts;
+use Aliw1382\TelegramTools\Contracts\Interface\TelegramContracts;
 use Aliw1382\TelegramTools\Enums\TelegramTypeMessage;
 use Illuminate\Support\Facades\Facade;
 
@@ -65,6 +65,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static array setWebhook( string $url, string $certificate = "", array $more = [] )
  * @method static array deleteWebhook( bool $drop_pending_updates = true )
  * @method static array getWebhookInfo()
+ * @method static $this setTOKEN( string $TOKEN )
  * @method static void downloadFile( $telegram_file_path, $local_file_path )
  * @method static array getMe()
  * @method static string usernameUrl()

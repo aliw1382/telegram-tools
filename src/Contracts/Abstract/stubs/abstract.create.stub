@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Telegram;
+
+use Aliw1382\TelegramTools\Contracts\Abstract\AbstractTelegram{{ type }};
+
+
+class {{ ClassName }} extends AbstractTelegram{{ type }}
+{
+
+
+}

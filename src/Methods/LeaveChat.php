@@ -2,7 +2,7 @@
 
 namespace Aliw1382\TelegramTools\Methods;
 
-use Aliw1382\TelegramTools\Contracts\TelegramSenderContract;
+use Aliw1382\TelegramTools\Contracts\Interface\TelegramSenderContract;
 use Aliw1382\TelegramTools\TelegramBase;
 use Psr\Http\Message\ResponseInterface;
 
@@ -16,7 +16,6 @@ class LeaveChat extends TelegramBase implements TelegramSenderContract
 
     public static function create() : self
     {
-        // TODO: Implement create() method.
         return new self();
     }
 
